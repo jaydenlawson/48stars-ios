@@ -1,85 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>48Stars - Beginner iOS Guide</title>
-<meta charset="utf-8">
-<style>body{font-family:sans-serif;max-width:800px;margin:0 auto;padding:20px;line-height:1.6} h1{color:#007aff} h2{border-bottom:1px solid #ddd;padding-bottom:10px} pre{background:#f5f5f5;padding:15px;border-radius:5px;overflow:auto} code{background:#eee;padding:2px 4px;border-radius:3px} ol,ul{padding-left:25px}</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Four Point Eight Stars - Beginner Full Guide</title>
+<style>
+body { font-family: -apple-system, sans-serif; max-width: 900px; margin: 40px auto; padding: 20px; line-height: 1.6; color: #333; }
+h1 { color: #007AFF; text-align: center; }
+h2 { border-bottom: 2px solid #007AFF; padding-bottom: 10px; }
+pre { background: #f8f9fa; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 14px; }
+strong { color: #d0021b; }
+code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-family: Monaco; }
+ol, ul { padding-left: 30px; }
+.note { background: #e3f2fd; padding: 15px; border-left: 5px solid #007AFF; margin: 20px 0; }
+</style>
 </head>
 <body>
-<h1>48Stars - 4.8+ Stars Finder (Beginner)</h1>
-<p>Map search bottom bar. Granular steps.</p>
 
-<h2>Prerequisites</h2>
+<h1>Four Point Eight Stars ⭐ - Complete Beginner Guide</h1>
+<p>Find 4.8+ star businesses on map. Bottom search bar. <strong>Every click/field listed.</strong></p>
+
+<h2>Prerequisites (One Time)</h2>
 <ol>
-<li>Xcode App Store install/open</li>
-<li>developer.apple.com $99 enroll</li>
-<li>Google Console: Maps SDK iOS + Places API keys (restrict iOS bundle com.sidekick48stars)</li>
+<li><strong>Xcode:</strong> Cmd+Space "App Store" → "Xcode" → Get → Install (wait, ~12GB)</li>
+<li><strong>Apple Developer:</strong> <a href="https://developer.apple.com/account">developer.apple.com/account</a> → Start Free Trial → Pay $99 → Verify ID/card</li>
+<li><strong>Google Keys:</strong> <a href="https://console.cloud.google.com">console.cloud.google.com</a> → New Project "48Stars" → APIs & Services → Library → Enable "Maps SDK for iOS" + "Places API" → Credentials → + Create Credentials → API Key → iOS apps restrict bundle <code>com.sidekick-four-point-eight</code> → Copy 2 keys</li>
 </ol>
 
-<h2>1. Clone</h2>
+<h2>1. Clone Repo</h2>
 <pre>mkdir ~/Desktop/48StarsApp
 cd ~/Desktop/48StarsApp
 git clone https://github.com/jaydenlawson/48stars-ios.git
-cd 48Stars</pre>
+cd 48stars-ios</pre>
 
-<h2>2. Xcode New Project (5min)</h2>
+<h2>2. Xcode New Project (Granular)</h2>
+<div class="note">Close other Xcode. Use Terminal for cd.</div>
 <ol>
-<li>Open Xcode</li>
-<li>File &gt; New &gt; Project</li>
-<li>iOS tab &gt; App &gt; Next</li>
-<li>Product Name: <strong>48Stars</strong></li>
-<li>Team: Sidekick Pty Ltd</li>
-<li>Organization Identifier: <strong>com.sidekick</strong></li>
-<li>Bundle Identifier: <strong>com.sidekick48stars</strong></li>
-<li>Interface: SwiftUI</li>
-<li>Language: Swift</li>
-<li>Uncheck tests/Core Data/CloudKit</li>
-<li>Next &gt; Save in 48Stars folder (checkmark)</li>
+<li>Xcode open (Spotlight Cmd+Space "Xcode")</li>
+<li><strong>File → New → Project</strong></li>
+<li>Top iOS tab → <strong>App</strong> → Next</li>
+<li><strong>Product Name:</strong> <code>Four Point Eight Stars</code></li>
+<li><strong>Team:</strong> dropdown "Sidekick Pty Ltd"</li>
+<li><strong>Organization Identifier:</strong> <code>com.sidekick</code></li>
+<li>Bundle Identifier auto <code>com.sidekick.four-point-eight-stars</code> → OK or edit <code>com.sidekick-four-point-eight</code></li>
+<li><strong>Interface:</strong> SwiftUI</li>
+<li><strong>Language:</strong> Swift</li>
+<li>Uncheck Unit Tests / UI Tests / Core Data / CloudKit</li>
+<li><strong>Next → Create</strong> in <code>48stars-ios</code> folder (checkmark "Create Git repository no")</li>
 </ol>
 
-<h2>3. Add Podfile & Install</h2>
+<h2>3. Pods</h2>
+<pre>cd "Four Point Eight Stars"
+pod install</pre>
+<p>"Pod installation complete!"</p>
+
+<h2>4. Replace Code Files</h2>
 <ol>
-<li>Terminal in 48Stars: <code>pod install</code></li>
-<li>"Complete!"</li>
+<li>Xcode left nav: trash ContentView.swift, Four_Point_Eight_StarsApp.swift</li>
+<li><strong>File → New → File → iOS → Swift File → Next → 48StarsApp.swift** → Create</li>
+<li>Paste repo 48StarsApp.swift code → Save Cmd+S</li>
+<li>Repeat for ContentView.swift, MapUIView.swift, MapViewModel.swift (repo copies)</li>
 </ol>
 
-<h2>4. Replace Files</h2>
+<h2>5. Signing (Screenshot Match)</h2>
 <ol>
-<li>Delete ContentView.swift FourStarsApp.swift (move trash)</li>
-<li>New File &gt; Swift File → paste repo ContentView.swift / 48StarsApp.swift / MapUIView.swift / MapViewModel.swift</li>
+<li>Left nav blue **Four Point Eight Stars** proj</li>
+<li><strong>Signing & Capabilities** tab</li>
+<li>Check <strong>Automatically manage signing</strong></li>
+<li><strong>Team:</strong> "Sidekick Pty Ltd"</li>
+<li><strong>Bundle Identifier:</strong> <code>com.sidekick-four-point-eight</code></li>
+<li>Green "Xcode managed profile" + Apple Development Jayden Lawson cert</li>
+</ol>
+
+<h2>6. API Keys</h2>
+<ol>
+<li>ContentView.swift line ~50: <code>"YOUR_GOOGLE_MAPS_IOS_SDK_API_KEY"</code> → Maps key</li>
+<li>MapViewModel.swift line ~20: <code>"YOUR_GOOGLE_PLACES_API_KEY"</code> → Places key</li>
 <li>Save all</li>
-</ol>
-
-<h2>5. Signing</h2>
-<ol>
-<li>Left blue 48Stars proj</li>
-<li>Signing tab</li>
-<li>Check Automatically manage</li>
-<li>Team: Sidekick Pty Ltd</li>
-<li>Bundle Identifier: com.sidekick48stars</li>
-</ol>
-
-<h2>6. Keys</h2>
-<ol>
-<li>ContentView.swift: YOUR_GOOGLE_MAPS_IOS_SDK_API_KEY</li>
-<li>MapViewModel.swift: YOUR_GOOGLE_PLACES_API_KEY</li>
 </ol>
 
 <h2>7. Run</h2>
 <ol>
-<li>Product &gt; Clean Build Folder</li>
-<li>Simulator iPhone</li>
-<li>Cmd+R</li>
+<li>Product → <strong>Clean Build Folder</strong> Cmd+Shift+K</li>
+<li>Toolbar simulator iPhone 15 Pro</li>
+<li><strong>Play button</strong> Cmd+R (1st 2min)</li>
+<li>Map Sydney, bottom search "coffee" Enter → 4.8⭐ markers!</li>
 </ol>
 
-<h2>8. TestFlight</h2>
+<h2>8. TestFlight Upload</h2>
 <ol>
-<li>Product &gt; Archive</li>
-<li>Organizer → Distribute App → App Store Connect → Upload</li>
-<li>appstoreconnect.apple.com New App "48Stars" bundle com.sidekick48stars</li>
-<li>TestFlight → Internal → Add email</li>
+<li>Product → <strong>Archive</strong> (Organizer pops)</li>
+<li>Organizer left list → latest Archive → <strong>Distribute App</strong></li>
+<li><strong>App Store Connect</strong> → Upload</li>
+<li>appstoreconnect.apple.com → My Apps → + → iOS "Four Point Eight Stars" SKU "48stars1" bundle com.sidekick-four-point-eight → Create</li>
+<li>TestFlight tab → Build list → latest → + Internal Testing → + your email → Submit</li>
+<li>TestFlight iPhone app → Install test build!</li>
 </ol>
 
-<p>Zap 2026-02-09. Zero skips. ⚡️</p>
+<h2>Errors?</h2>
+<ul>
+<li>Pods: <code>pod deintegrate &amp;&amp; pod install</code></li>
+<li>Signing red: Team/bundle match</li>
+<li>Map blank: Key restrict bundle</li>
+<li>Clean: Cmd+Shift+K</li>
+</ul>
+
+<p>Zap 2026-02-09. Total beginner. Questions? Ask. ⚡️</p>
+
 </body>
 </html>
