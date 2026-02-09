@@ -1,8 +1,8 @@
-project '48Stars.xcodeproj'
+project 'Four Point Eight Stars.xcodeproj'
 
 platform :ios, '18.0'
 
-target '48Stars' do
+target 'Four Point Eight Stars' do
   use_frameworks!
   pod 'GoogleMaps'
 end
